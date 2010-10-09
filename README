@@ -1,0 +1,22 @@
+CallSquare(back to all applications)
+Accessing the Veriplace API
+
+The Veriplace API can be accessed at http://veriplace.com using the credentials below.
+Primary Credentials
+Consumer Key: 	OgqVuEZHpnbXgIYASw3T 	
+Tooltip
+The OAuth Consumer Key identifies your application when making requests to the Veriplace API.
+Consumer Secret: 	4skNqOBFQDhOQEYeMuwz 	
+Tooltip
+The OAuth Consumer Secret, in combination with your Consumer Key, authenticates your application when making requests to Veriplace API.
+
+The Consumer Key and Consumer Secret above allow you to access the Veriplace API. If you need help getting started, refer to the documentation.
+Other Credentials
+Application Token: 	coeTxZqEOJUQVO7Otzmx 	
+Tooltip
+The Application Token is an OAuth Access Token that authorizes your application to use certain Veriplace APIs that do not support end-user interaction. Most commonly, this Access Token would be used for User Discovery API queries by phone number or email address.
+Application Token Secret: 	IoRiDDyQIs4yo6GCGVrd 	
+Tooltip
+The Application Token Secret, in combination with your Application Token, authorizes your application to use certain Veriplace APIs that do not support end-user interaction.
+
+The Application Token and Application Token Secret permit you to use certain portions of the API without direct user authorization. If you need help getting started, refer to the documentation.

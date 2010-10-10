@@ -35,7 +35,8 @@ def call_list(URL):
         'To' : '347-266-0830',
         'Url' : URL,
         }
-    account.request('/%s/Accounts/%s/Calls' %(API_VERSION, ACCOUNT_SID), 'POST', d)
+    account.request('/%s/Accounts/%s/Calls'\
+                        %(API_VERSION, ACCOUNT_SID), 'POST', d)
 #    try:
 #        print account.request('/%s/Accounts/%s/Calls' % (API_VERSION, ACCOUNT_SID), 'POST', d)
 #    except Exception, e:
@@ -44,16 +45,20 @@ def call_list(URL):
 
 def make_locs(lat,lon,lim):
     # get nearby locs from foursquare
+    ids = []
     f = foursquare.Api()
     x = f.get_venues(lat,lon,l=lim)
     r = twilio.Response()
-    g = r.append(twilio.Gather(numDigits=1))
+    g = r.append(twilio.Gather(numDigits=1,\
+                                   action="process_gather.py"\
+                                   method="GET"))
     j = 1
     for i in x['groups'][0]['venues']:
+        ids.append(i['id'])
         g.append(twilio.Say("%s %s" % (repr(j), i['name'])))
         j += 1
-    r.append(twilio.Redirect()) # TODO - make this a real redirect
-    return r
+    # r.append(twilio.Redirect()) # TODO - make this a real redirect
+    return r,ids
 
 if __name__ == "__main__":
 
@@ -66,11 +71,11 @@ if __name__ == "__main__":
     lon = sys.argv[2]
     lim = 9
 
-    locs = make_locs(lat,lon,lim)
+    locs,ids = make_locs(lat,lon,lim)
 
     fh = open('/var/www/locs.xml','w') # TODO - run this on real server
     fh.write(repr(locs))
     fh.close()
 
-    print locs
-    call_list('http://cs.maxsobell.com/locs.xml')
+    print ids
+#    call_list('http://cs.maxsobell.com/locs.xml')

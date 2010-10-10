@@ -1,0 +1,98 @@
+html, body{
+	font-size: 12px;
+	font-family: Georgia, Monaco, monospace, Helvetica, Verdana, Arial;
+}
+ul{
+list-style: none outside none
+}
+a{
+color: black;
+	text-decoration: none;
+}
+a:focus, a:hover, a:active {
+	font-size:bold
+	}
+
+#container, #bigContainer{
+width:880px;
+height: 650px;
+margin:auto;
+
+}
+#header{
+border-bottom-style:dashed;
+border-color:#2398C9;
+height:100px;
+position:relative;
+margin:auto;
+
+}
+#footer{
+border-color:#2398C9;
+border-top-style: dashed;
+height:72px;
+clear:both;
+margin:auto;
+}
+#content{
+clear:both;
+height:460px;
+}
+#logo{
+font-weight: bold;
+font-size: 64px;
+float:left;
+width:43%;/* width should be 489px, adjust with things inside*/
+height:100%;
+padding-left:18px;
+margin-top: 12px;
+}
+#hleft{
+float:left;
+width:52%/*790px*/;height:100%;/*width should be 790px, adjust with things inside*/
+font-size:18px;
+position:relative;
+border-color:#2398C9;
+}
+
+.menu{
+float:right;
+width:auto;
+margin-right:40px;
+cursor:pointer;
+position:relative;
+top:68px;
+}
+.menu:hover{
+font-weight:bold;
+}
+
+#otherinfo{
+	position:relative;
+	margin-top:32px;
+	float:right;
+	margin-right:20px;
+	font-size:12px;
+}
+
+#home{
+	margin:40px auto auto;
+	width:650px;
+	height:400px;
+	position:relative;
+}
+
+img{
+	width:620px;
+	height:400px;
+}
+
+#box{
+	width: 200px;
+	height:500px;
+	margin:auto;
+	margin-top:40px;
+	padding:2px;
+	font-size: 12px;
+	overflow:auto;
+}

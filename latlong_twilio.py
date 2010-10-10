@@ -35,12 +35,12 @@ def call_list(URL):
         'To' : '347-266-0830',
         'Url' : URL,
         }
-    try:
-        print account.request('/%s/Accounts/%s/Calls' % \
-                                  (API_VERSION, ACCOUNT_SID), 'POST', d)
-    except Exception, e:
-        print e
-        print e.read()
+    account.request('/%s/Accounts/%s/Calls' %(API_VERSION, ACCOUNT_SID), 'POST', d)
+#    try:
+#        print account.request('/%s/Accounts/%s/Calls' % (API_VERSION, ACCOUNT_SID), 'POST', d)
+#    except Exception, e:
+#        print e
+#        print e.read()
 
 def make_locs(lat,lon,lim):
     # get nearby locs from foursquare

@@ -15,13 +15,15 @@ def usage():
 
 if __name__ == "__main__":
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         usage()
         sys.exit(1)
 
-    vid = sys.argv[1]
+    num = sys.argv[1]
+    ids = sys.argv[2]
 
-    sys.stdout.write("ID: %s\n" % (id))
+    ids = ids.split('&')
+    vid = ids[int(num)-1]
 
     f = foursquare.Api()
     x = f.checkin(USER,PASS,vid=vid)

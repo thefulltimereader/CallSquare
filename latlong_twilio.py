@@ -49,15 +49,20 @@ def make_locs(lat,lon,lim):
     f = foursquare.Api()
     x = f.get_venues(lat,lon,l=lim)
     r = twilio.Response()
+    for i in x['groups'][0]['venues']:
+        ids.append("%d&" % i['id'])
+    # convert to string
+    ids = ''.join(ids)
+    # remove last &
+    ids = ids[:-1]
     g = r.append(twilio.Gather(numDigits=1,\
-                                   action="process_gather.py"\
-                                   method="GET"))
+                                   action="process_gather.py",\
+                                   method="GET",\
+                                   vid=ids))
     j = 1
     for i in x['groups'][0]['venues']:
-        ids.append(i['id'])
         g.append(twilio.Say("%s %s" % (repr(j), i['name'])))
         j += 1
-    # r.append(twilio.Redirect()) # TODO - make this a real redirect
     return r,ids
 
 if __name__ == "__main__":

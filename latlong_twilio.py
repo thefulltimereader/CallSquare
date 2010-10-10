@@ -52,16 +52,8 @@ def make_locs(lat,lon,lim):
     for i in x['groups'][0]['venues']:
         g.append(twilio.Say("%s %s" % (repr(j), i['name'])))
         j += 1
-    r.append(twilio.Redirect())
+    r.append(twilio.Redirect()) # TODO - make this a real redirect
     return r
-    # resp = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
-    # resp += "<Response>\n"
-    # j = 1
-    #     resp += ("<Say>%s %s</Say>\n" % (repr(j),i['name']))
-    #     j += 1
-    # resp += "</Response>"
-    # resp = resp.replace('&','and')
-    # return resp
 
 if __name__ == "__main__":
 
@@ -69,13 +61,14 @@ if __name__ == "__main__":
         usage()
         sys.exit(1)
 
+    # TODO - get these from location-labs
     lat = sys.argv[1]
     lon = sys.argv[2]
     lim = 9
 
     locs = make_locs(lat,lon,lim)
 
-    fh = open('/var/www/locs.xml','w')
+    fh = open('/var/www/locs.xml','w') # TODO - run this on real server
     fh.write(repr(locs))
     fh.close()
 

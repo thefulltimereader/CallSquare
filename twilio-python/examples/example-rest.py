@@ -6,8 +6,8 @@ import twilio
 API_VERSION = '2010-04-01'
 
 # Twilio AccountSid and AuthToken
-ACCOUNT_SID = 'AC02e6fc5f949b4c1b01645d52faad168b'
-ACCOUNT_TOKEN = 'd72f5917a17f3c4f4504f1c3ff2e8cbb'
+ACCOUNT_SID = '';
+ACCOUNT_TOKEN = '';
 
 # Outgoing Caller ID previously validated with Twilio
 CALLER_ID = '6504540072';
